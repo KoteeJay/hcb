@@ -15,7 +15,7 @@ include "../inc/process.php";
     <title>OnePage</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Favicons -->
     <link href="../assets/img/favicon.png" rel="icon">
    
@@ -58,6 +58,41 @@ include "../inc/process.php";
         </div>
     </header>
     <!-- End Header -->
+
+
+
+    <?php
+                if (isset($error)) {
+                ?>
+                     <script> 
+                Swal.fire({
+                icon: "error",
+                title: "Oooops!",
+                text: "Please Check again",
+                
+                });
+                
+                </script>
+
+                <?php
+                } elseif (isset($success)){
+                    ?>
+                  <script> 
+                Swal.fire({
+                icon: "success",
+                title: "Congratulations",
+                text: "Registration Complete!",
+                
+                });
+                
+                </script>
+
+                  <?php  
+                }
+                ?>
+                
+
+
     <section>
     <div class="container">
        
@@ -65,7 +100,10 @@ include "../inc/process.php";
         <h3>Sign Up</h3>
         <p>Fill in your details</p>
         </div>
+        
         <div class="formHolder ">
+            
+
             <div class="parent">
                 <form action="" method="POST" class="form">
                 <label>
@@ -142,23 +180,7 @@ include "../inc/process.php";
                     <p>What is your message to the governor? (optional)</p>
                     <textarea type="text" name="message" id="" placeholder="Message" class="msg" required></textarea>
                 </label>
-                <?php
-                if (isset($error)) {
-                ?>
-                    <div class="alert alert-danger">
-                        <strong> <?php echo $error; ?> </strong>
-                    </div>
-
-                <?php
-                } elseif (isset($success)){
-                    ?>
-                    <div class="alert alert-success">
-                        <strong> <?php echo $success; ?> </strong>
-                    </div>
-                  <?php  
-                }
-                ?>
-
+                
 
 
 
